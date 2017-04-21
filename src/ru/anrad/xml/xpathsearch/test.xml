@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<Persons>
+
+    <person id="345623">
+
+        <fullName>Steve Jones</fullName>
+
+        <address>43 North wing, Washington</address>
+
+        <dateOfBirth>21 March 2001</dateOfBirth>
+
+    </person>
+
+    <person id="972376">
+
+        <fullName>Sachin Tendulkar</fullName>
+
+        <address>3 Pahaar gang, Bombay</address>
+
+        <dateOfBirth>21 March 1982</dateOfBirth>
+
+    </person>
+
+</Persons>
