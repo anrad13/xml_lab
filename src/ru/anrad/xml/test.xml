@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 
-<Persons>
+<persons>
 
     <person id="345623">
 
@@ -22,4 +22,4 @@
 
     </person>
 
-</Persons>
+</persons>
