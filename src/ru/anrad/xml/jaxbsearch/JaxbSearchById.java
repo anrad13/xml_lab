@@ -21,10 +21,10 @@ public class JaxbSearchById {
     public JaxbSearchById(String xmlFilePath) {
         //System.out.println(Instant.now() + " start jaxb factory & file open");
         try {
-            Instant i1 = Instant.now();
-            File xmlFile = new File(xmlFilePath);
             JAXBContext jaxbContext = JAXBContext.newInstance(Persons.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+            Instant i1 = Instant.now();
+            File xmlFile = new File(xmlFilePath);
             persons = (Persons) jaxbUnmarshaller.unmarshal(xmlFile);
             Instant i2 = Instant.now();
             long delay = i1.until(i2, ChronoUnit.MILLIS);

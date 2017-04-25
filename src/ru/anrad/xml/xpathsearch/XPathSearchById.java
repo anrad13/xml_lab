@@ -51,14 +51,17 @@ public class XPathSearchById {
         XPathSearchById consumer = new XPathSearchById(inputFileName);
 
         Instant i1 = Instant.now();
-        //System.out.println(Instant.now() + " start first evaluate");
-        consumer.accept("/persons/person[@id=972376]/fullName");
+        System.out.println(Instant.now() + " start first evaluate");
+        //consumer.accept("/persons/person[@id=972376]/fullName");
+        consumer.accept("/Envelope/Header/MessageInfo/To");
 
-        //System.out.println(Instant.now() + " start second the same evaluate");
-        consumer.accept("/persons/person[@id=972376]/fullName");
+        System.out.println(Instant.now() + " start second the same evaluate");
+        //consumer.accept("/persons/person[@id=972376]/fullName");
+        consumer.accept("/Envelope/Header/MessageInfo/From");
 
-        //System.out.println(Instant.now() + " start another not the same evaluate");
-        consumer.accept("/persons/person[@id=345623]/fullName");
+        System.out.println(Instant.now() + " start another not the same evaluate");
+        //consumer.accept("/persons/person[@id=345623]/fullName");
+        consumer.accept("/Envelope/Body/PacketEPD/ED101[@EDNo=577112924]/Payer");
 
         Instant i2 = Instant.now();
         long delay = i1.until(i2, ChronoUnit.MILLIS);
