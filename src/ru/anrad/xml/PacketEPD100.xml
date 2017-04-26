@@ -4902,7 +4902,7 @@
                     <ns4:Bank BIC="123456789" CorrespAcc="12345678912345678900"/>
                 </ns4:Payer>
                 <ns4:Payee INN="9087676655" KPP="098778901" PersonalAcc="99999999999999910001">
-                    <ns4:Name>РћРђРћ "РќРђРќРћ"</ns4:Name>
+                    <ns4:Name>Это самый русский текст</ns4:Name>
                     <ns4:Bank BIC="123456789" CorrespAcc="12345678912345678900"/>
                 </ns4:Payee>
                 <ns4:Purpose>РћРїР»Р°С‚Р° РїРѕ РґРѕРіРѕРІРѕСЂСѓ 3223</ns4:Purpose>
@@ -4921,7 +4921,7 @@
                     <ns4:Session SessionType="NURG">
                         <ns4:SessionID>08</ns4:SessionID>
                     </ns4:Session>
-                </ns4:ProcessingDetails>Text ED1010
+                </ns4:ProcessingDetails>Русский текст
                 Text2 ED1010
             </ns4:ED1010>
         </ns4:PacketEPD>

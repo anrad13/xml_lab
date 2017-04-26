@@ -1,6 +1,8 @@
 package ru.anrad.xml.staxsearch;
 
 
+import com.ibm.xml.xlxp.api.stax.serializer.SingleByteWriter;
+
 import javax.xml.namespace.QName;
 import javax.xml.stream.*;
 import javax.xml.stream.events.Characters;
@@ -9,7 +11,9 @@ import javax.xml.stream.events.XMLEvent;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 
+import java.io.CharArrayWriter;
 import java.io.File;
+import java.io.Writer;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 
@@ -55,12 +59,15 @@ public class StaxSearchById {
             XMLEventWriter writer = consumer.writer;
             //
             XMLEventFactory eventFactory = XMLEventFactory.newInstance();
-            XMLEvent event = eventFactory.createStartDocument();
             //
+            Writer writer2 = new CharArrayWriter();
+
             while (reader.hasNext()) {
                 XMLEvent e = reader.nextEvent();
                 token.pushEvent(e);
                 token2.pushEvent(e);
+                //
+                e.writeAsEncodedUnicode(writer2);
                 //
                 if(e.isCharacters()) {
                     Characters ch = e.asCharacters();
@@ -68,8 +75,9 @@ public class StaxSearchById {
                         e = eventFactory.createCharacters("test" + e.asCharacters().getData());
                     }
                 }
-                writer.add(e);
+                //writer.add(e);
             }
+            System.out.println(writer2.toString());
         }
         catch (Exception e) {
             e.printStackTrace();
@@ -80,6 +88,7 @@ public class StaxSearchById {
 
         System.out.println("Element = " + token.getElement().getName().getNamespaceURI() + "; Value = " + token.getElementText() + "; Delay = " + delay);
         System.out.println("Element = " + token2.getElement().getName().getNamespaceURI() + "; Value = " + token2.getElementText() + "; Delay = " + delay);
+
 
 
     }
