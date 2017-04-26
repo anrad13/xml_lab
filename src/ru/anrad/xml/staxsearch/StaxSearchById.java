@@ -1,10 +1,6 @@
 package ru.anrad.xml.staxsearch;
 
 
-import com.sun.xml.internal.stream.events.EndDocumentEvent;
-import com.sun.xml.internal.stream.events.EndElementEvent;
-import com.sun.xml.internal.stream.events.StartElementEvent;
-
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLEventWriter;
@@ -51,75 +47,32 @@ public class StaxSearchById {
 
         boolean isE = false;
         boolean isInnerE = false;
-        String eName = "ED1010";
+        String eName = "CorrelationMessageID";
         StringBuffer eText = new StringBuffer();
 
+        ElementToken token = new ElementToken("CorrelationMessageID", "urn:cbr-ru:msg:props:v1.3");
+        ElementToken token2 = new ElementToken("ED1010");
 
         Instant i1 = Instant.now();
         try {
             XMLEventReader reader = consumer.reader;
             while (reader.hasNext()) {
                 XMLEvent e = reader.nextEvent();
-
-                if (e.isStartElement() && ((StartElementEvent) e).getName().getLocalPart().equals(eName)) {
-                //if (e.isStartElement() ) {
-                    isE = true;
-                    System.out.println( reader.getElementText() );
-                    continue;
-                }
-                if (e.isEndElement() && ((EndElementEvent) e).getName().getLocalPart().equals(eName)) {
-                    isE = false;
-                    //System.out.println(e);
-                    //QName qName = ((EndElementEvent) e).getName();
-                    //QName qName = new QName("ED101010");
-                    //((EndElementEvent) e).setName(qName);
-                    //System.out.println(e);
-                    break;
-                    //continue;
-                }
-                if (e.isStartElement() && isE) {
-                    isInnerE = true;
-                    continue;
-                }
-                if (e.isEndElement() && isInnerE) {
-                    isInnerE = false;
-                    //System.out.println(e);
-                    continue;
-                }
-
-                if (isE && e.isCharacters() && !isInnerE) {
-                    //System.out.println(e);
-                    if (((Characters) e).isWhiteSpace()) continue;
-                    eText.append(e);
-                }
-
-                if (e.isEndDocument()) {
-                    System.out.println( e );
-                }
+                token.pushEvent(e);
+                token2.pushEvent(e);
             }
         }
         catch (Exception e) {
             e.printStackTrace();
         }
 
-
-
         Instant i2 = Instant.now();
         long delay = i1.until(i2, ChronoUnit.MILLIS);
 
-        System.out.println("Value = " + eText.toString() + "; Delay = " + delay);
+        System.out.println("Element = " + token.getElement().getName().getNamespaceURI() + "; Value = " + token.getElementText() + "; Delay = " + delay);
+        System.out.println("Element = " + token2.getElement().getName().getNamespaceURI() + "; Value = " + token2.getElementText() + "; Delay = " + delay);
 
-        /*
-        try {
-            XMLEventWriter writer = XMLOutputFactory.newInstance().createXMLEventWriter(System.out);
-            writer.add(consumer.reader);
-            writer.flush();
-            writer.close();
-        }
-        catch (Exception e ) {
-            e.printStackTrace();
-        }
-        */
+
     }
 
 }
