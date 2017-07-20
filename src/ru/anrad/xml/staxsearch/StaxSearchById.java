@@ -51,7 +51,7 @@ public class StaxSearchById {
         StaxSearchById consumer = new StaxSearchById(inputFileName);
 
         ElementToken token = new ElementToken("CorrelationMessageID", "urn:cbr-ru:msg:props:v1.3");
-        ElementToken token2 = new ElementToken("ED1010");
+        ElementToken token2 = new ElementToken("ED101");
 
         Instant i1 = Instant.now();
         try {

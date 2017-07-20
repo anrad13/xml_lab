@@ -4921,8 +4921,7 @@
                     <ns4:Session SessionType="NURG">
                         <ns4:SessionID>08</ns4:SessionID>
                     </ns4:Session>
-                </ns4:ProcessingDetails>Русский текст
-                Text2 ED1010
+                </ns4:ProcessingDetails>
             </ns4:ED1010>
         </ns4:PacketEPD>
     </Body>

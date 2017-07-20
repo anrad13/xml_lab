@@ -1,0 +1,15 @@
+<x:doc xmlns:x="http://w3.org/2"
+        		xmlns:y="http://w3.org/1"
+        		xmlns:z="http://w3.org/3"
+        		xmlns:w="http://w3.org/4"
+        		xmlns:n1="http://w2.org/1">
+        		<x:e a="a"/>
+        		<x:e x:a="x:a"/>
+        		<e x:a="x:a"/>
+        		<e x:a="x:a" a="a" xmlns="http://w2.org/2"/>
+    			<e x:a="x:a" y:a="y:a"/>
+        		<e x:a="x:a" x:b="x:b"/>
+        		<x:e x:a="x:a" x:b="x:b" xmlns:v="http://w3.org/6" xmlns:z="http://w3.org/5">
+			<z:e x:a="x:a" x:b="x:b" n1:c="n1:c"/>
+		</x:e>
+</x:doc>

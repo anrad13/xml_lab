@@ -3,6 +3,8 @@
 <persons>
 
     <person id="345623">
+        text
+        characters
 
         <fullName>Steve Jones</fullName>
 

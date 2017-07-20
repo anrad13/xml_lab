@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="Windows-1251"?>
+<?xml-stylesheet type="text/xsl" href="UniESID1.xslt"?>
+<ED202 xmlns="urn:cbr-ru:ed:v2.0"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="urn:cbr-ru:ed:v2.0 UniDoc1_1.xsd"
+       InquiryCode="1"
+       EDNo="8" EDDate="2003-04-14" EDAuthor="4525545000"
+       EDReceiver="4525000000" >
+    <EDRefID EDNo="7" EDDate="2003-04-14" EDAuthor="4525545000"/>
+</ED202>
